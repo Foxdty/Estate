@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+<!-- tree -->
+    <record id='type_tree' model='ir.ui.view'>
+        <field name='name'>es_type_tree</field>
+        <field name='model'>estate.type</field>
+        <field name='arch' type='xml'>
+            <tree string='Tests1'>
+                <field name="sequence" widget='handle' />
+                <field name='id'/>
+                <field name='name'/>
+                <field name='offer_ids'/>
+                <!-- <field name='offer_count'/> -->
+                
+            </tree>
+        </field>
+    </record>
+<!--  -->
+    <record id ="button_offer" model='ir.actions.act_window'>
+        <field name='name'>Property Offer</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>estate.property.offer</field>
+        <!-- <field name="domain" /> -->
+        <field name='view_mode'>tree,form</field>
+    </record>
+    <!--  -->
+    <record id='type_tree_offer' model='ir.ui.view'>
+        <field name='name'>es_type_tree_offer</field>
+        <field name='model'>estate.property.offer</field>
+        <field name='arch' type='xml'>
+            <tree string='Tests1' decoration-success="status == 'Accepted'"
+            decoration-danger="status == 'Refused'">
+                <field name="price" />
+                <field name='partner_id'/>
+                <field name='validity'/>
+                <field name='deadline'/>
+                <button  name="Accept"  type="object" icon='fa-check'  />
+                <button  name="Refuse" type="object" icon='fa-times'  />
+                <field name='status'/>
+                <!-- <field name='offer_count'/> -->
+                
+            </tree>
+        </field>
+    </record>
+<!-- form -->
+    <record id='type_form' model='ir.ui.view'>
+        <field name='name'>es_type_form</field>
+        <field name='model'>estate.type</field>
+        <field name='arch' type='xml'>
+            <form string='Testformtype'>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(estate.button_offer)d" type="action" class="oe_stat_button" icon="fa-money">
+                            <div class="o_field_widget o_stat_info">
+                                <field name="offer_count" />
+                                <span class="o_stat_text">Offer</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <h1>
+                            <field name='name'/>
+                            
+                        </h1>
+                    </group>
+                    <notebook>
+                        <page name="es_property" string="Properties">
+                            <field name="property_ids" >
+                                <tree>
+                                    <field name="name" />
+                                    <field name="expected_price" />
+                                    <field name="status" />
+                                </tree>
+                            </field>
+
+                            
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+<!-- action -->
+    <record id ="property_action" model='ir.actions.act_window'>
+        <field name='name'>Property Type</field>
+        <field name='res_model'>estate.type</field>
+        <field name='view_mode'>tree,form</field>
+    </record>
+</odoo>

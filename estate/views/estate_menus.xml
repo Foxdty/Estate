@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- <menuitem id ="test_menu_root" name="Real Estate">
+        <menuitem id="test_fist_level_menu" name="First level">
+            <menuitem id="test_model_menu_action" action="test_model_action"/>
+        </menuitem> 
+    </menuitem> -->
+    <!-- <menuitem id ="test_menu_root" name="Real Estate" sequence="7"/>
+    <menuitem id="test_fist_level_menu" name="Advertiserments" parent="test_menu_root" sequence="2"/>
+    <menuitem id="test_model_menu_action" name="Properties" parent="test_fist_level_menu" action="test_model_action" sequence="1"/> 
+    <menuitem id="setting_menu" name="Setting" parent="test_menu_root" sequence="3"/>
+    <menuitem id="property_type" name="Property Type" parent="setting_menu" action="property_action" sequence='2'/>
+    <menuitem id="tag_menu" name="Property Tag" parent="setting_menu" action="tag_action" sequence='7'/> -->
+    
+    <menuitem id="estate_menu_root" name="Real Estate">
+        <menuitem id="test_fist_level_menu" name="Advertisements" sequence="10">
+            <menuitem id="test_model_menu_action" action="test_model_action" />
+            
+        </menuitem>
+        <menuitem id="setting_menu" name="Settings" sequence="15">
+            <menuitem id="property_type" action="property_action" name="Property Type" />
+            <menuitem id="tag_menu" action="tag_action" name="Property Tag" />
+        </menuitem>
+
+    </menuitem>
+
+    <menuitem id="estate.menu_estate_report" name="Reporting" parent="estate_menu_root" sequence="5"/>
+
+</odoo>
